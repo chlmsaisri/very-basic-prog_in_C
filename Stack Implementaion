@@ -1,0 +1,83 @@
+// basic stack operations (push, pop, peek, isEmpty, isFull) is O(1), while display is O(n)
+
+
+
+
+#include <stdio.h>
+#define MAX_SIZE 100
+
+int stack[MAX_SIZE];
+int top = -1;
+
+// Function to push an element onto the stack
+void push(int element) {
+    if (top == MAX_SIZE - 1) {
+        printf("Stack overflow\n");
+        return;
+    }
+
+    stack[++top] = element;
+}
+
+// Function to pop an element from the stack
+int pop() {
+    if (top == -1) {
+        printf("Stack underflow\n");
+        return -1; // Return a sentinel value or handle the underflow case appropriately
+    }
+
+    return stack[top--];
+}
+
+// Function to get the top element of the stack without removing it
+int peek() {
+    if (top == -1) {
+        printf("Stack is empty\n");
+        return -1; // Return a sentinel value or handle the empty stack case appropriately
+    }
+
+    return stack[top];
+}
+
+// Function to check if the stack is empty
+int isEmpty() {
+    return (top == -1);
+}
+
+// Function to check if the stack is full
+int isFull() {
+    return (top == MAX_SIZE - 1);
+}
+
+// Function to display the elements of the stack
+void display() {
+    if (top == -1) {
+        printf("Stack is empty\n");
+        return;
+    }
+
+    printf("Stack: ");
+    for (int i = 0; i <= top; i++) {
+        printf("%d ", stack[i]);
+    }
+    printf("\n");
+}
+
+int main() {
+    push(1);
+    push(2);
+    push(3);
+    display(); // Stack: 1 2 3
+
+    int poppedElement = pop();
+    printf("Popped element: %d\n", poppedElement); // Popped element: 3
+
+    printf("Top element: %d\n", peek()); // Top element: 2
+
+    display(); // Stack: 1 2
+
+    printf("Is stack empty? %s\n", isEmpty() ? "Yes" : "No");
+    printf("Is stack full? %s\n", isFull() ? "Yes" : "No");
+
+    return 0;
+}
