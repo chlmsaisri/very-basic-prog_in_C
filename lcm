@@ -1,0 +1,65 @@
+#include <stdio.h>
+
+// Function to find the LCM of two numbers
+int lcm(int a, int b) {
+    int max = (a > b) ? a : b;
+    int lcmValue = max;
+
+    while (1) {
+        if (lcmValue % a == 0 && lcmValue % b == 0) {
+            break;
+        }
+        lcmValue += max;
+    }
+
+    return lcmValue;
+}
+
+int main() {
+    int num1, num2;
+
+    printf("Enter two numbers: ");
+    scanf("%d %d", &num1, &num2);
+
+    int lcmValue = lcm(num1, num2);
+
+    printf("LCM: %d\n", lcmValue);
+
+    return 0;
+}
+
+
+
+
+----------------       2                -------------
+
+#include <stdio.h>
+
+// Function to find the GCD of two numbers
+int gcd(int a, int b) {
+    if (b == 0) {
+        return a;
+    }
+    return gcd(b, a % b);
+}
+
+// Function to find the LCM of two numbers
+int lcm(int a, int b) {
+    int gcdValue = gcd(a, b);
+    return (a * b) / gcdValue;
+}
+
+int main() {
+    int num1, num2;
+
+    printf("Enter two numbers: ");
+    scanf("%d %d", &num1, &num2);
+
+    int gcdValue = gcd(num1, num2);
+    int lcmValue = lcm(num1, num2);
+
+    printf("GCD: %d\n", gcdValue);
+    printf("LCM: %d\n", lcmValue);
+
+    return 0;
+}
