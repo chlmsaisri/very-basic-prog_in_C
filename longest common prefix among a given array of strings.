@@ -1,0 +1,26 @@
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    char* arr[] = {"flower", "flow", "flight"};
+    int size = sizeof(arr) / sizeof(arr[0]);
+
+    char commonPrefix[100];
+    int index = 0;
+
+    while (1) {
+        char currentChar = arr[0][index]; // Get the character at current index
+        for (int i = 1; i < size; i++) {
+            if (arr[i][index] != currentChar || currentChar == '\0') {
+                // If characters don't match or we have reached the end of a string
+                commonPrefix[index] = '\0'; // Null-terminate the common prefix
+                printf("Longest common prefix: %s\n", commonPrefix);
+                return 0;
+            }
+        }
+        commonPrefix[index] = currentChar;
+        index++;
+    }
+
+    return 0;
+}
