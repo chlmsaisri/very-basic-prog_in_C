@@ -1,0 +1,24 @@
+#include <stdio.h>
+
+int main() {
+    int arr[] = {9, 12, 7, 4, 2, 6, 11, 3, 8};
+    int size = sizeof(arr) / sizeof(arr[0]);
+
+    int smallestEven = -1; // Initialize smallestEven to a large negative value
+
+    for (int i = 0; i < size; i++) {
+        if (arr[i] % 2 == 0) {
+            if (smallestEven == -1 || arr[i] < smallestEven) {
+                smallestEven = arr[i];
+            }
+        }
+    }
+
+    if (smallestEven == -1) {
+        printf("No even number found in the array.\n");
+    } else {
+        printf("The smallest even number is: %d\n", smallestEven);
+    }
+
+    return 0;
+}
