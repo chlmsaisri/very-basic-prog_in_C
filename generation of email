@@ -1,0 +1,31 @@
+#include <stdio.h>
+
+void generateEmail(char firstName[], char lastName[], char domain[]) {
+    char email[100];
+    email[0] = firstName[0];
+    int i, j;
+
+    for (i = 1, j = 0; lastName[j] != '\0'; i++, j++) {
+        email[i] = lastName[j];
+    }
+
+    email[i++] = '@';
+
+    for (j = 0; domain[j] != '\0'; i++, j++) {
+        email[i] = domain[j];
+    }
+
+    email[i] = '\0';
+
+    printf("Generated email: %s\n", email);
+}
+
+int main() {
+    char firstName[] = "chlm";
+    char lastName[] = "Saisri";
+    char domain[] = "example.com";
+
+    generateEmail(firstName, lastName, domain);
+
+    return 0;
+}
