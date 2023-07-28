@@ -1,0 +1,39 @@
+int count = 0;
+for (int i = 0; i < n; i++) {
+    if (a[i] == key) {
+        count++;
+        break;
+    }
+}
+
+if (count == 1) {
+    printf("Key found\n");
+}
+
+
+-------------
+
+
+#include <stdio.h>
+
+int main() {
+    int arr[] = {12, 45, 67, 23, 56, 78, 34, 9, 81};
+    int n = sizeof(arr) / sizeof(arr[0]);
+
+    int key = 56;
+    int found = 0;
+
+    for (int i = 0; i < n; i++) {
+        if (arr[i] == key) {
+            found = 1;
+            printf("Key found at index: %d\n", i);
+            break;
+        }
+    }
+
+    if (!found) {
+        printf("Key not found in the array.\n");
+    }
+
+    return 0;
+}
