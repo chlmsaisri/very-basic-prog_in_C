@@ -1,0 +1,33 @@
+
+
+#include <stdio.h>
+
+int main() {
+    int arr[] = {2, 5, 8, 12, 16, 23, 38, 45, 56, 72};
+    int n = sizeof(arr) / sizeof(arr[0]);
+
+    int key = 23;
+    int left = 0;
+    int right = n - 1;
+    int found = 0;
+
+    while (left <= right) {
+        int mid = left + (right - left) / 2;
+
+        if (arr[mid] == key) {
+            found = 1;
+            printf("Key found at index: %d\n", mid);
+            break;
+        } else if (arr[mid] < key) {
+            left = mid + 1;
+        } else {
+            right = mid - 1;
+        }
+    }
+
+    if (!found) {
+        printf("Key not found in the array.\n");
+    }
+
+    return 0;
+}
